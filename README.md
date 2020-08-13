@@ -1,6 +1,6 @@
 # Heroku buildpack for Rust
 
-[![Build Status](https://travis-ci.org/emk/heroku-buildpack-rust.svg?branch=master)](https://travis-ci.org/emk/heroku-buildpack-rust)
+[![Build Status](https://travis-ci.org/kvnallsn/heroku-buildpack-rust.svg?branch=master)](https://travis-ci.org/kvnallsn/heroku-buildpack-rust)
 
 This is a Heroku buildpack for Rust with support for [cargo][] and [rustup][].  Features include:
 
@@ -21,9 +21,9 @@ Here are several example projects:
 - [rust-buildpack-example-actix][] uses the popular [Actix][] framework, and runs on stable Rust.
 - [rust-buildpack-example-rocket][] uses the innovative [Rocket][] framework, which currently requires nightly Rust.
 
-[rust-buildpack-example-actix]: https://github.com/emk/rust-buildpack-example-actix
+[rust-buildpack-example-actix]: https://github.com/kvnallsn/rust-buildpack-example-actix
 [Actix]: https://actix.rs/
-[rust-buildpack-example-rocket]: https://github.com/emk/rust-buildpack-example-rocket
+[rust-buildpack-example-rocket]: https://github.com/kvnallsn/rust-buildpack-example-rocket
 [Rocket]: https://rocket.rs/
 
 ## Using this buildpack
@@ -33,7 +33,7 @@ To deploy an application to Heroku, we recommend installing the [Heroku CLI][].
 If you're creating a new Heroku application, `cd` to the directory containing your code, and run:
 
 ```sh
-heroku create --buildpack emk/rust
+heroku create --buildpack kvnallsn/rust
 ```
 
 This will only work if your application has a `Cargo.toml` and uses `git`. If you want to set a particular name for application, see `heroku create --help` first.
@@ -41,7 +41,7 @@ This will only work if your application has a `Cargo.toml` and uses `git`. If yo
 To use this as the buildpack for an existing application, run:
 
 ```sh
-heroku buildpacks:set emk/rust
+heroku buildpacks:set kvnallsn/rust
 ```
 
 You will also need to create a `Procfile` pointing to the release version of your application, and commit it to `git`:
@@ -87,7 +87,7 @@ Note: if you previously specified a `VERSION` variable in `RustConfig`, that wil
 If you have a project which combines both Rust and another programming language, you can insert this buildpack before your existing one as follows:
 
 ```sh
-heroku buildpacks:add --index 1 emk/rust
+heroku buildpacks:add --index 1 kvnallsn/rust
 ```
 
 If you have a valid `Cargo.toml` in your project, this is all you need to do. The Rust buildpack will run first, and your existing buildpack will run second.
@@ -111,10 +111,10 @@ If the variable is not set in `RustConfig`, the default value will be used to bu
 
 ## Using the edge version of the buildpack
 
-The `emk/rust` buildpack from the [Heroku Registry](https://devcenter.heroku.com/articles/buildpack-registry) contains the latest stable version of the buildpack. If you'd like to use the latest buildpack code from this Github repository, you can set your buildpack to the Github URL:
+The `kvnallsn/rust` buildpack from the [Heroku Registry](https://devcenter.heroku.com/articles/buildpack-registry) contains the latest stable version of the buildpack. If you'd like to use the latest buildpack code from this Github repository, you can set your buildpack to the Github URL:
 
 ```sh
-heroku buildpacks:set https://github.com/emk/heroku-buildpack-rust
+heroku buildpacks:set https://github.com/kvnallsn/heroku-buildpack-rust
 ```
 
 ## Development notes
